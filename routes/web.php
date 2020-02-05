@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Prevent 404 on vue router mode history
+Route::get('{any}', 'HomeController@index')->where('any','.*');
